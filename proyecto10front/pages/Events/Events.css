@@ -1,0 +1,78 @@
+.divEvents {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-m);
+    padding: var(--padding-xl);
+}
+
+.eventCard {
+    width: 450px;
+    height: 600px;
+    padding: var(--padding-s);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(51,51,51,0.5);
+    transition: all 0.4s ease-in-out;
+    position: relative;
+}
+
+.eventCard:hover {
+    transform: scale(1.01);
+}
+
+.divImg {
+    width: 400px;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.divImg > img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.eventCard > p {
+ font-size: 0.9em;
+ padding-top: var(--padding-s);
+ padding: 0 var(--padding-s);
+ text-align: justify;
+ line-height: 1.5;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: var(--blue-color);
+    padding-left: var(--padding-s);
+}
+
+p.date {
+    color: var(--blue-color);
+    font-weight: 600;
+    padding: 0 10px 5px 10px;
+    font-style: italic;
+}
+
+p.location {
+    color: var(--blue-color);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1em;
+}
+
+#attendeeButton {
+    background-color:var(--blue-color);
+    width: 200px;
+    padding: var(--padding-s);
+    border-radius: 20px;
+    color: var(--primary-color);
+    font-weight: 500;
+    position: absolute;
+    bottom: 17px;
+    left: 125px;
+    cursor: pointer;
+}

@@ -1,0 +1,33 @@
+header {
+    width: 100%;
+    height: 10svh;
+    background-color: var(--secondary-color);
+}
+
+nav {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav > div > a {
+    color: var(--blue-color);
+    font-size: 1.5em;
+    padding: var(--padding-m);
+    height: 100%;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+nav > div > a:hover {
+    transform: scale(1.1);
+    color: var(--blue-color-secondary);
+}
+
+.none {
+    display: none;
+}

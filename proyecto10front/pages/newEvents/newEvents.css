@@ -1,0 +1,36 @@
+.newEvent {
+    height: 80svh;
+}
+
+.newEvent > input {
+    width: 300px;
+}
+
+.desc {
+    width: 300px;
+    height: 150px;
+    background-color: var(--primary-color);
+    border-radius: 20px;
+    border: 3px solid var(--tertiary-color);
+}
+
+.desc::placeholder {
+    position: absolute;
+    top: 10px;
+    left: 10px
+}
+
+.img::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+
+.img::before {
+    content: 'Seleccionar imagen del Evento';
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #f0f0f0;
+    color: #333;
+    cursor: pointer;
+  }
