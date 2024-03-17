@@ -76,3 +76,57 @@ p.location {
     left: 125px;
     cursor: pointer;
 }
+
+#delete {
+    border-radius: 10px;
+    padding: var(--padding-xs);
+    border: 2px solid var(--tertiary-color);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 850px) {
+    .eventCard {
+        width: 400px;
+        height: 550px;
+    }
+    .divImg {
+        width: 350px;
+        height: 220px;
+    }
+    
+    .eventCard > p {
+     font-size: 0.8em;
+    }
+    
+    h3 {
+        font-size: 1.3em;
+    }
+    
+    #attendeeButton {
+        left: 100px;
+    }
+  }
+
+
+  @media screen and (max-width: 650px) {
+    .eventCard {
+        width: 350px;
+        height: 500px;
+    }
+    .divImg {
+        width: 300px;
+        height: 200px;
+    }
+    
+    .eventCard > p {
+     font-size: 0.7em;
+    }
+    
+    h3 {
+        font-size: 1.2em;
+    }
+    
+    #attendeeButton {
+        left: 75px;
+    }
+  }

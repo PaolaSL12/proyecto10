@@ -37,6 +37,11 @@ export const PrintEvents = (events, contenedor, text) => {
     attendeeButton.textContent = text;
     attendeeButton.className = "none";
 
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "❌"
+    deleteButton.id = "delete"
+    deleteButton.className = "none";
+
     attendeeButton.addEventListener("click", (e) => {
       const eventId = idEv.textContent;
 
@@ -52,6 +57,14 @@ export const PrintEvents = (events, contenedor, text) => {
       }
     });
 
+    deleteButton.addEventListener("click", () => {
+      const eventId = idEv.textContent;
+      deleteEvent(eventId);
+      setTimeout(() => {
+        Events();
+      }, 100);
+    })
+
     divimg.className = "divImg";
     date.className = "date";
     location.className = "location";
@@ -65,10 +78,16 @@ export const PrintEvents = (events, contenedor, text) => {
 
     if (localStorage.getItem("token")) {
       attendeeButton.className = "";
+      if (JSON.parse(localStorage.getItem("user")).rol === "admin") {
+        deleteButton.className = ""
     }
+    }
+
+
 
     divimg.append(img);
     divEvent.append(
+      deleteButton,
       divimg,
       title,
       location,
@@ -154,3 +173,19 @@ const cancelAttendee = async (id) => {
   );
   const canceled = await cancel.json();
 };
+
+
+const deleteEvent = async (id) => {
+  const opciones = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  const deleteEvent = await fetch(
+    `http://localhost:3000/api/events/${id}`,
+    opciones
+  );
+  const canceled = await deleteEvent.json();
+}

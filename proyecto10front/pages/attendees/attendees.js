@@ -8,7 +8,6 @@ export const getAttendees = async () => {
     const res = await fetch("http://localhost:3000/api/attendees");
     const attendees = await res.json();
 
-    console.log(attendees);
     printAttendees(attendees, main)
 }
 
@@ -24,6 +23,22 @@ const printAttendees = async (attendees, contenedor) => {
         const email = document.createElement("h5");
         const events = document.createElement("h5");
         const divEvents = document.createElement("div");
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "❌"
+        deleteButton.className = "delete";
+
+        const idEv = document.createElement("span");
+        idEv.textContent = attendee._id;
+        idEv.className = "none";
+
+        deleteButton.addEventListener("click", (e) => {
+            const eventId = idEv.textContent;
+            deleteAttendee(eventId)
+            setTimeout(() => {
+                getAttendees();
+              }, 100);
+        })
 
         divEvents.className = "divEvent"
 
@@ -57,9 +72,24 @@ const printAttendees = async (attendees, contenedor) => {
             divEvents.append(event)
         }
         
-        cardAttendee.append(name, email, events, divEvents)
+        cardAttendee.append(deleteButton, name, email, events, divEvents)
         divAttendees.append(cardAttendee);
     }
 
     contenedor.append(divAttendees)
+}
+
+const deleteAttendee = async (id) => {
+    const opciones = {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+    
+      const deleteAttendee = await fetch(
+        `http://localhost:3000/api/attendees/${id}`,
+        opciones
+      );
+      const canceled = await deleteAttendee.json();
 }

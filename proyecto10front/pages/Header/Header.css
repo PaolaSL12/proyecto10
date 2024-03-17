@@ -31,3 +31,30 @@ nav > div > a:hover {
 .none {
     display: none;
 }
+
+@media screen and (max-width: 850px) {
+    nav > div > a {
+        font-size: 1em;
+    }
+  }
+
+
+@media screen and (max-width: 650px) {
+    nav {
+        width: 100%;
+    }
+    nav > div > a {
+        font-size: 0.8em;
+        padding: var(--padding-s);
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    nav {
+        width: 100%;
+    }
+    nav > div > a {
+        font-size: 0.7em;
+        padding: var(--padding-xs);
+    }
+  }

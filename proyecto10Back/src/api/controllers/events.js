@@ -34,6 +34,16 @@ const getEvents = async (req, res, next) => {
       return res.status(400).json("error");
     }
   };
+
+  const deleteEvent = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const deletedEvent = await Event.findByIdAndDelete(id);
+      return res.status(200).json(deletedEvent);
+    } catch (error) {
+      return res.status(400).json("error");
+    }
+  };
   
 
-  module.exports = { getEvents, getEventById, postEvento }
+  module.exports = { getEvents, getEventById, postEvento, deleteEvent }

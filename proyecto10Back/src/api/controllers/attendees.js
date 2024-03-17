@@ -1,5 +1,4 @@
 const Attendee = require("../models/attendees");
-const User = require("../models/users");
 
 const getAttendees = async (req, res, next) => {
   try {
@@ -44,8 +43,6 @@ const confirmAttendee = async (req, res, next) => {
         events: [eventId],
       });
 
-      console.log(oldAttendee[0]);
-
       newAttendee._id = oldAttendee[0]._id;
       console.log(newAttendee);
       newAttendee.events = [...oldAttendee[0].events, ...newAttendee.events];
@@ -66,16 +63,6 @@ const confirmAttendee = async (req, res, next) => {
   }
 };
 
-const createAttendee = async (req, res, next) => {
-  try {
-    const newAttendee = new Attendee(req.body);
-    const attendee = await newAttendee.save();
-    return res.status(201).json(attendee);
-  } catch (error) {
-    console.log(error);
-    return res.status(400).json("error");
-  }
-};
 
 const updateAttendee = async (req, res, next) => {
   try {
@@ -116,12 +103,22 @@ const cancelAttendee = async (req, res, next) => {
   }
 };
 
+const deleteAttendee = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const deletedAttendee = await Attendee.findByIdAndDelete(id)
+    return res.status(200).json(deletedAttendee);
+  } catch (error) {
+    return res.status(400).json("error");
+  }
+};
+
 module.exports = {
   getAttendees,
   getAttendeesById,
   confirmAttendee,
-  createAttendee,
   updateAttendee,
   getAttendeesByName,
-  cancelAttendee
+  cancelAttendee,
+  deleteAttendee
 };
