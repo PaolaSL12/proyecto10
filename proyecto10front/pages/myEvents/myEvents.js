@@ -9,7 +9,7 @@ export const MyEvents = async () => {
 
     const logged = JSON.parse(localStorage.getItem("user")).name
 
-    const res = await fetch(`http://localhost:3000/api/attendees/name/${logged}`);
+    const res = await fetch(`https://proyecto10-back-phi.vercel.app/api/attendees/name/${logged}`);
     const response = await res.json();
 
     const userAteendee = response[0]
@@ -27,7 +27,7 @@ export const MyEvents = async () => {
 
 const getEvents = async (contenedor, userAteendee) => {
 
-        const res = await fetch(`http://localhost:3000/api/attendees/${userAteendee._id}`);
+        const res = await fetch(`https://proyecto10-back-phi.vercel.app/api/attendees/${userAteendee._id}`);
         const events = await res.json();
     
         const myEvents = events.events

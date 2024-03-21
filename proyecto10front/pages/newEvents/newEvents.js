@@ -63,7 +63,7 @@ const submitEvent = async (title, date, location, description, img) => {
   };
 
 
-  const res = await fetch("http://localhost:3000/api/events/post", opciones);
+  const res = await fetch("https://proyecto10-back-phi.vercel.app/api/events/post", opciones);
   const response = await res.json();
 
 

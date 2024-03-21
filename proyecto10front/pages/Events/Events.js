@@ -7,7 +7,7 @@ export const Events = async () => {
 
   main.innerHTML = "";
 
-  const res = await fetch("http://localhost:3000/api/events/");
+  const res = await fetch("https://proyecto10-back-phi.vercel.app/api/events/");
   const events = await res.json();
 
   const text = "Confirmar asistencia";
@@ -122,7 +122,7 @@ const confirmAttendee = async (id) => {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     };
-    const res = await fetch(`http://localhost:3000/api/attendees`, opciones);
+    const res = await fetch(`https://proyecto10-back-phi.vercel.app/api/attendees`, opciones);
     const response = await res.json();
     confirmAttendee(id);
   }
@@ -143,7 +143,7 @@ const confirmAttendee = async (id) => {
   };
 
   const confirm = await fetch(
-    `http://localhost:3000/api/attendees/${id}`,
+    `https://proyecto10-back-phi.vercel.app/api/attendees/${id}`,
     opciones
   );
   const confirmed = await confirm.json();
@@ -168,7 +168,7 @@ const cancelAttendee = async (id) => {
   };
 
   const cancel = await fetch(
-    `http://localhost:3000/api/attendees/cancel/${id}`,
+    `https://proyecto10-back-phi.vercel.app/api/attendees/cancel/${id}`,
     opciones
   );
   const canceled = await cancel.json();
@@ -184,7 +184,7 @@ const deleteEvent = async (id) => {
   };
 
   const deleteEvent = await fetch(
-    `http://localhost:3000/api/events/${id}`,
+    `https://proyecto10-back-phi.vercel.app/api/events/${id}`,
     opciones
   );
   const canceled = await deleteEvent.json();

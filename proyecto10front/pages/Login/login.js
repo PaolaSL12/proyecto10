@@ -54,7 +54,7 @@ const submit = async (name, password, form) => {
         }
     }
 
-    const res = await fetch("http://localhost:3000/api/users/login", opciones);
+    const res = await fetch("https://proyecto10-back-phi.vercel.app/api/users/login", opciones);
 
 
     if (res.status === 400) {

@@ -53,7 +53,7 @@ const submit = async (name, email, password, form) => {
         }
     }
 
-    const res = await fetch("http://localhost:3000/api/users/register", opciones);
+    const res = await fetch("https://proyecto10-back-phi.vercel.app/api/users/register", opciones);
 
 
     if (res.status === 400) {

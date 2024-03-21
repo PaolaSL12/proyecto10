@@ -5,7 +5,7 @@ export const getAttendees = async () => {
 
     main.innerHTML = "";
 
-    const res = await fetch("http://localhost:3000/api/attendees");
+    const res = await fetch("https://proyecto10-back-phi.vercel.app/api/attendees");
     const attendees = await res.json();
 
     printAttendees(attendees, main)
@@ -88,7 +88,7 @@ const deleteAttendee = async (id) => {
       };
     
       const deleteAttendee = await fetch(
-        `http://localhost:3000/api/attendees/${id}`,
+        `https://proyecto10-back-phi.vercel.app/api/attendees/${id}`,
         opciones
       );
       const canceled = await deleteAttendee.json();
